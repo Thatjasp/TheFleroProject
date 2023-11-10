@@ -14,7 +14,7 @@ Flero++ is a user-friendly C++ web framework that provides efficient solutions f
  *Note*: As of the updating of this README, all these features are at a MVP stage. We hope that a future team can possibly flesh them out more.
 
 ## Setting up the project
-Please refer to the Gitlab Wiki page [How to build Flero++](https://gitlab.csi.miamioh.edu/2023-capstone/FastCGI_Webserver_Plugin/fastcgi-webserver-plugin-project/-/wikis/Build%20Flero++) on instructions of how to properly set up Flero++ and running it.
+Please refer to the Gitlab Wiki page  [How to build Flero++](https://github.com/Thatjasp/TheFleroProject/wiki/Build-Flero) on instructions of how to properly set up Flero++ and running it.
 
 ## Authors and acknowledgment
 Baxter Huntington, Jose Salinas, Joey Woods, Raymond Lin, Wilson Yu
