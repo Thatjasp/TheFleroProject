@@ -2,7 +2,6 @@
 	"dockerComposeFile": "../docker/docker-compose.yml",
 	"service": "apache2_fcgi_dev",
 	"workspaceFolder": "/fleropp",
-	"initializeCommand": "git config user.name \"$(git config user.name)\" && git config user.email \"$(git config user.email)\"",
 	"customizations": {
 		"vscode": {
 			"extensions": [
