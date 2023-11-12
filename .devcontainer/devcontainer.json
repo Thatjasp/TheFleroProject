@@ -1,6 +1,7 @@
 {
 	"dockerComposeFile": "../docker/docker-compose.yml",
 	"service": "apache2_fcgi_dev",
+	"initializeCommand": "powershell.exe \"git config --add user.email $(git config --get user.email) && git config --add user.name $(git config --get user.name)\"",
 	"workspaceFolder": "/fleropp",
 	"customizations": {
 		"vscode": {
