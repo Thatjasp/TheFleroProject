@@ -1,0 +1,38 @@
+{
+    "files.associations": {
+        "functional": "cpp"
+    },
+    "makefile.configurations": [
+        {
+            "name": "MyConfiguration",
+            "makeArgs": ["-j","-C" , "/fleropp/fleropp_fpm"]
+        } 
+    ], 
+    "makefile.makefilePath": "/fleropp/fleropp_fpm/Makefile",
+   
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/fleropp/fleropp_fpm/debug/bin",
+            "binaryPath": "/fleropp/fleropp_fpm/debug/bin/fleropp_fpm",
+            "binaryArgs": [
+                "-p",
+                "50001"
+            ]
+        },
+        {
+            "cwd": "/fleropp/fleropp_fpm/release/bin",
+            "binaryPath": "/fleropp/fleropp_fpm/release/bin/fleropp_fpm",
+            "binaryArgs": [
+                "-p",
+                "50001"
+            ]
+        },
+        {
+            "cwd": "/fleropp/fleropp_fpm/release/bin",
+            "binaryPath": "/fleropp/fleropp_fpm/release/bin/fleropp_fpm",
+            "binaryArgs": []
+        }
+    ],
+    "makefile.alwaysPreConfigure": true,
+    "makefile.ignoreDirectoryCommands": false,
+}
