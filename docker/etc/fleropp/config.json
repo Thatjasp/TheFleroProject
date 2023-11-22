@@ -6,14 +6,7 @@
                  "-o", "@OBJECT", "@SOURCES", "-lcgicc", "-lsoci_core", "-lsoci_mysql", "-ldl",
                  "-lmysqlclient", "-L/lib/fleropp", "-lfleropp", "-Wl,-rpath=/lib/fleropp", "-I/usr/include/fleropp"]
     },
-    "database": {
-        "driver": "mysql",
-        "host": "db",
-        "port": "3306",
-        "dbname": "fleropp_test",
-        "username": "root",
-        "password": "fleropp"
-    },
+
     "endpoints": [
         {
             "path": "/demo.elf",

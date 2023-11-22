@@ -17,6 +17,11 @@
             "command": "make clean && make all",
             "options": {
                 "cwd": "${workspaceFolder}/fleropp_fpm"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
             }
         },
         {
@@ -26,16 +31,20 @@
         },
         {
             "label": "Build and Run Fleropp...",
-            "dependsOn": ["Build Fleropp...", "Run Fleropp..."],
+            "dependsOn": [
+                "Build Fleropp...",
+                "Run Fleropp..."
+            ],
             "dependsOrder": "sequence",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
+            "group": "build",
+            "problemMatcher": []
         },
         {
             "label": "Build (serial) and Run Fleropp...",
-            "dependsOn": ["Build Fleropp (serial)...", "Run Fleropp..."],
+            "dependsOn": [
+                "Build Fleropp (serial)...",
+                "Run Fleropp..."
+            ],
             "dependsOrder": "sequence",
             "group": {
                 "kind": "build",
