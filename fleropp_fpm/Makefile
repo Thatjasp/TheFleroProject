@@ -1,6 +1,6 @@
 SRCDIR = ./src
 OBJDIR = ./obj
-BINDIR = ./bin
+BINDIR = bin
 SODIR = ./so
 INCDIR = ./include
 DBDIR = ../docker/public-html/driver
@@ -39,7 +39,7 @@ DBGOBJDIR = $(DBGDIR)/$(OBJDIR)
 
 DBGOBJS = $(addprefix $(DBGDIR)/, $(OBJ))
 DBGSO = $(DBGDIR)/$(SODIR)/$(SO)
-DBGSODIR = $(DBGDIR)/$(SODIR)
+DBGSODIR = $(DBGDIR)/$(SODIR)/$(SODIR)
 DBGCFLAGS = -g -O0 -DDEBUG
 
 #
@@ -50,7 +50,7 @@ RELEXEDIR = $(RELDIR)/$(BINDIR)
 RELEXE = $(RELEXEDIR)/$(BIN)
 RELOBJDIR = $(RELDIR)/$(OBJDIR)
 
-RELOBJS = $(addprefix $(RELOBJDIR), $(OBJS))
+RELOBJS = $(addprefix $(RELDIR)/, $(OBJ))
 RELSODIR = $(RELDIR)/$(SODIR)
 RELSO = $(RELDIR)/$(SODIR)/$(SO)
 RELCFLAGS = -O3 -DNDEBUG
@@ -58,6 +58,7 @@ RELCFLAGS = -O3 -DNDEBUG
 ifeq ($(PREFIX),)
 	PREFIX := /usr
 endif
+
 ##### Release #####
 .PHONY : all
 all: $(RELEXEDIR) $(RELOBJDIR) $(RELSODIR) compile link gch shared dbdriver
@@ -191,11 +192,11 @@ install:
 	install -d $(DESTDIR)$(PREFIX)/include/fleropp
 	install -d $(DESTDIR)$(PREFIX)/bin
 	install -d $(DESTDIR)/etc/fleropp
-	install -m 755 $(SODIR)/$(SO) $(DESTDIR)$(PREFIX)/lib/fleropp
+	install -m 755 $(RELSO) $(DESTDIR)$(PREFIX)/lib/fleropp
 	install -m 755 $(DBDIR)/$(MYSQL_DB_SO) $(DESTDIR)$(PREFIX)/lib/fleropp/drivers
-	cp -r $(INCDIR)/* $(DESTDIR)$(PREFIX)/include/fleropp
+	cp -rn $(INCDIR)/* $(DESTDIR)$(PREFIX)/include/fleropp
 	chmod -R 644 $(DESTDIR)$(PREFIX)/include/fleropp/*
-	install -m 755 $(RELEXEDIR) $(DESTDIR)$(PREFIX)/bin
-	cp $(TEMPLATEDIR)/*.template $(DESTDIR)/etc/fleropp 
+	install -m 755 $(RELEXE) $(DESTDIR)$(PREFIX)/bin
+	cp -n $(TEMPLATEDIR)/*.template $(DESTDIR)/etc/fleropp 
 	chmod 644 $(DESTDIR)/etc/fleropp/*.template
 
