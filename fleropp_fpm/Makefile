@@ -87,58 +87,13 @@ link: compile
 shared: compile
 	$(CXX) $(RELCFLAGS) $(CXXFLAGS) -shared -o $(RELSO) $(RELOBJS) $(LDLIBS)
 
-# .PHONY : dbggch
-# gch: $(GCH)
-# 	$(CXX) $(DBGCFLAGS) $(CXXFLAGS) $<
-
 .PHONY : dbdriver
 dbdriver:
 	$(CXX) $(RELCFLAGS) $(CXXFLAGS) -I $(DB_INCDIR) -shared -o $(DBDIR)/$(MYSQL_DB_SO) $(MYSQL_DB_SRC) $(LDLIBS) $(DB_LDLIBS)
 
-# .PHONY : dbdriver
-# dbdriver:
-# 	$(CXX) $(DBGCFLAGS) $(CXXFLAGS) -I $(DB_INCDIR) -shared -o $(DBDIR)/$(MYSQL_DB_SO) $(MYSQL_DB_SRC) $(LDLIBS) $(DB_LDLIBS)
-
 .PHONY : gch
 gch: $(GCH)
 	$(CXX) $(CXXFLAGS) $(RELCFLAGS)  $<
-##########################   
-
-# .PHONY : all
-# all: $(BINDIR) $(OBJDIR) $(SODIR) compile link gch shared dbdriver
-
-# $(BINDIR):
-# 	mkdir -p $(BINDIR)
-
-# $(OBJDIR):
-# 	mkdir -p $(OBJDIR)
-
-# $(SODIR):
-# 	mkdir -p $(SODIR)
-
-# .PHONY : compile
-# compile: $(OBJ)
-
-# .PHONY : gch
-# gch: $(GCH)
-# 	$(CXX) $(CXXFLAGS) $<
-
-# .PHONY : $(OBJDIR)/%.o
-# $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
-# 	$(CXX) -c $(CXXFLAGS) $(BOOSTFLAGS) $< -o $@
-
-# .PHONY : link
-# link: compile
-# 	$(CXX) $(CXXFLAGS) $ $(LDFLAGS) -o $(BINDIR)/$(BIN) $(OBJ) $(LDLIBS)
-
-# .PHONY : shared
-# shared: compile
-# 	$(CXX) $(CXXFLAGS) -shared -o $(SODIR)/$(SO) $(OBJ) $(LDLIBS)
-
-# .PHONY : dbdriver
-# dbdriver:
-# 	$(CXX) $(CXXFLAGS) -I $(DB_INCDIR) -shared -o $(DBDIR)/$(MYSQL_DB_SO) $(MYSQL_DB_SRC) $(LDLIBS) $(DB_LDLIBS)
-
 
 ##### Debug #####
 .PHONY : dbg
@@ -168,18 +123,9 @@ dbglink: dbgcompile
 dbgshared: dbgcompile
 	$(CXX) $(DBGCFLAGS) $(CXXFLAGS) -shared -o $(DBGSO) $(DBGOBJS) $(LDLIBS)
 
-# .PHONY : dbggch
-# gch: $(GCH)
-# 	$(CXX) $(DBGCFLAGS) $(CXXFLAGS) $<
-
 .PHONY : dbgdbdriver
 dbgdbdriver:
 	$(CXX) $(DBGCFLAGS) $(CXXFLAGS) -I $(DB_INCDIR) -shared -o $(DBDIR)/$(MYSQL_DB_SO) $(MYSQL_DB_SRC) $(LDLIBS) $(DB_LDLIBS)
-
-# .PHONY : dbdriver
-# dbdriver:
-# 	$(CXX) $(DBGCFLAGS) $(CXXFLAGS) -I $(DB_INCDIR) -shared -o $(DBDIR)/$(MYSQL_DB_SO) $(MYSQL_DB_SRC) $(LDLIBS) $(DB_LDLIBS)
-
 
 .PHONY : clean
 clean:
